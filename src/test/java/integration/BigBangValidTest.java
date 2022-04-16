@@ -1,3 +1,7 @@
+package integration;
+
+import domain.Nota;
+import domain.Student;
 import domain.Tema;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,12 +12,13 @@ import service.Service;
 import validation.NotaValidator;
 import validation.StudentValidator;
 import validation.TemaValidator;
-import validation.ValidationException;
+
+import java.time.LocalDate;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
-public class AddAssignmentTest {
+public class BigBangValidTest {
     private Service service;
 
     @Before
@@ -32,34 +37,32 @@ public class AddAssignmentTest {
     }
 
     @Test
-    public void invalidId() {
-        Tema assignment = new Tema("", "a", 3, 2);
+    public void validAssignment() {
+        Tema assignment = new Tema("1", "a", 3, 2);
 
-        Throwable exception = assertThrows(ValidationException.class, () -> service.addTema(assignment));
-        assertEquals("Numar tema invalid!", exception.getMessage());
+        assertEquals(assignment, service.addTema(assignment));
     }
 
     @Test
-    public void invalidDescription() {
-        Tema assignment = new Tema("9000", "", 3, 2);
+    public void validStudent() {
+        Student student = new Student("1", "Ciupe Sergiu", 932, "email@gmail.com");
 
-        Throwable exception = assertThrows(ValidationException.class, () -> service.addTema(assignment));
-        assertEquals("Descriere invalida!", exception.getMessage());
+        assertEquals(student, service.addStudent(student));
     }
 
     @Test
-    public void invalidDeadline() {
-        Tema assignment = new Tema("9000", "a", 0, 2);
+    public void validNota() {
+        Tema assignment = new Tema("145", "a", 3, 2);
+        Student student = new Student("145", "Ciupe Sergiu", 932, "email@gmail.com");
+        Nota nota = new Nota("1", "145", "145", 9, LocalDate.of(2018, 11, 4));
 
-        Throwable exception = assertThrows(ValidationException.class, () -> service.addTema(assignment));
-        assertEquals("Deadlineul trebuie sa fie intre 1-14.", exception.getMessage());
+        assertEquals(nota.getNota(), service.addNota(nota, "Feedback"), 0.01);
     }
 
     @Test
-    public void invalidTurnIn() {
-        Tema assignment = new Tema("9000", "a", 3, 0);
-
-        Throwable exception = assertThrows(ValidationException.class, () -> service.addTema(assignment));
-        assertEquals("Saptamana primirii trebuie sa fie intre 1-14.", exception.getMessage());
+    public void allInvalidAdds() {
+        validAssignment();
+        validStudent();
+        validNota();
     }
 }

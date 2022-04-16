@@ -1,0 +1,8 @@
+BBT se refera la testele pe care le scriem nestiind codul, basically tinand cont doar de boundaries si facand teste in functie de boundaries
+ex: stim ca grupa trebuie sa fie un numar din intervalul [100,999], deci putem face 6 teste:
+    - unul cu grupa nr 99, adica lower boundary - 1
+    - unul cu grupa 100, adica lower boundary
+    - unul cu grupa 101, adica lower boundary + 1
+    - inca 3 in acelasi mod pentru upper bound (998, 999, 1000)
+
+WBT se refera la testele pe care le facem stiind flow-ul codului
