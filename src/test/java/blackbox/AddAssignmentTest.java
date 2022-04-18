@@ -59,7 +59,7 @@ public class AddAssignmentTest {
 
     @Test
     public void deadlineAboveUpperBound() {
-        Tema assignment = new Tema("9000", "a", 0, 2);
+        Tema assignment = new Tema("9000", "a", 15, 2);
 
         Throwable exception = assertThrows(ValidationException.class, () -> service.addTema(assignment));
         assertEquals("Deadlineul trebuie sa fie intre 1-14.", exception.getMessage());
@@ -67,10 +67,22 @@ public class AddAssignmentTest {
 
     @Test
     public void deadlineBelowLowerBound() {
-        Tema assignment = new Tema("9000", "a", 15, 2);
+        Tema assignment = new Tema("9000", "a", 0, 2);
 
         Throwable exception = assertThrows(ValidationException.class, () -> service.addTema(assignment));
         assertEquals("Deadlineul trebuie sa fie intre 1-14.", exception.getMessage());
+    }
+
+    @Test
+    public void deadlineBelowUpperBound() {
+        Tema assignment = new Tema("9000", "a", 13, 2);
+        assertEquals(assignment, service.addTema(assignment));
+    }
+
+    @Test
+    public void deadlineAboveLowerBound() {
+        Tema assignment = new Tema("9000", "a", 2, 2);
+        assertEquals(assignment, service.addTema(assignment));
     }
 
     @Test

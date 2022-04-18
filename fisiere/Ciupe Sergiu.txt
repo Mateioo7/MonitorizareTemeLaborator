@@ -46,3 +46,27 @@ Nota: 9.0
 Predata in saptamana: 5
 Deadline: 5
 Feedback: Feedback
+
+Tema: 145
+Nota: 9.0
+Predata in saptamana: 5
+Deadline: 5
+Feedback: Feedback
+
+Tema: 145
+Nota: 9.0
+Predata in saptamana: 5
+Deadline: 5
+Feedback: Feedback
+
+Tema: 145
+Nota: 9.0
+Predata in saptamana: 5
+Deadline: 5
+Feedback: Feedback
+
+Tema: 145
+Nota: 9.0
+Predata in saptamana: 5
+Deadline: 5
+Feedback: Feedback

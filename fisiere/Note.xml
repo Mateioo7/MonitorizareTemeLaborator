@@ -1,1 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><inbox><nota><idStudent>1</idStudent><idTema>1</idTema><notaProf>10.0</notaProf><dataCurenta>2018-10-10</dataCurenta></nota><nota><idStudent>145</idStudent><idTema>145</idTema><notaProf>9.0</notaProf><dataCurenta>2018-11-04</dataCurenta></nota></inbox>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<inbox>
+    <nota>
+        <idStudent>145</idStudent>
+        <idTema>145</idTema>
+        <notaProf>9.0</notaProf>
+        <dataCurenta>2018-11-04</dataCurenta>
+    </nota>
+</inbox>
